@@ -1,38 +1,456 @@
-.App {
+/* Fond général */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f0f0f0; /* Fond neutre clair */
+  color: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Rectangle bleu centré */
+/* Conteneur principal (rectangle bleu) */
+.app-container {
+  background: #241663; /* Bleu exact des cartes */
+  border-radius: 20px; /* Coins arrondis */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Ombre subtile */
+  width: 90%;
+  max-width: 800px; /* Limite maximale */
+  height: auto; /* Ajuste automatiquement la hauteur */
+  min-height: 80vh; /* Définit une hauteur minimale plus grande */
+  padding: 60px 40px; /* Ajoute plus de marge intérieure */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly; /* Ajoute un espacement uniforme entre les éléments */
+}
+
+
+
+/* Titre principal au-dessus du rectangle bleu */
+.main-title {
+  font-size: 2rem;
+  color: #f3f0ff; /* Violet très clair */
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Section centrale (carte intérieure) */
+.central-section {
+  background: url('../public/card-background.png') repeat; /* Image répétée */
+  background-size: 150px; /* Taille ajustée */
+  padding: 30px 20px; /* Ajoute plus de marge intérieure */
+  border-radius: 15px; /* Coins arrondis */
+  width: 90%; /* Largeur relative au rectangle bleu */
+  max-width: 500px; /* Limite maximale */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Ajoute un espacement entre les éléments */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/* Champs des joueurs */
+.player-input {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Champs de saisie des joueurs */
+/* Champs de saisie des joueurs */
+.player-input input {
+  padding: 15px 20px; /* Augmente l'espace intérieur */
+  font-size: 1.2rem; /* Augmente la taille du texte */
+  border: 2px solid #8e44ad; /* Bordure violet foncé */
+  border-radius: 10px; /* Coins arrondis */
+  width: 300px; /* Largeur augmentée */
+  background-color: #f3f0ff; /* Fond clair */
+  color: #500263; /* Texte violet foncé */
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+  transition: box-shadow 0.3s ease, border-color 0.3s ease; /* Animation pour le focus */
+  margin-bottom: 10px; /* Espace entre les champs */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Boutons Add Player et Remove Player */
+.player-controls button {
+  background-color: #ff69b4; /* Rose bonbon */
+  color: white; /* Texte blanc */
+  padding: 15px 30px; /* Taille augmentée */
+  font-size: 1.3rem; /* Texte plus grand */
+  font-weight: bold; /* Texte en gras */
+  border: none;
+  border-radius: 10px; /* Coins arrondis */
+  cursor: pointer;
+  margin: 10px; /* Espacement entre les boutons */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition pour le hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre élégante */
+}
+
+
+.player-input input::placeholder {
+  color: #8e44ad; /* Texte placeholder violet clair */
+  font-style: italic; /* Texte italique pour le placeholder */
+}
+
+.player-input input:focus {
+  outline: none;
+  border-color: #ff758c; /* Bordure rose vif au focus */
+  box-shadow: 0 0 10px #ff758c; /* Effet lumineux au focus */
+}
+
+
+.player {
+  margin: 10px 0;
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #8e44ad; /* Bordure violet foncé */
+  border-radius: 5px; /* Coins arrondis */
+  width: 220px; /* Largeur des champs */
+  background-color: #f3f0ff; /* Fond clair */
+  color: #500263; /* Texte violet foncé */
+  text-align: center;
+}
+
+input::placeholder {
+  color: #8e44ad; /* Texte placeholder violet clair */
+  font-style: italic;
+}
+
+/* Animation pour le focus des champs */
+input:focus {
+  outline: none;
+  border-color: #ff758c; /* Bordure rose vif au focus */
+  box-shadow: 0 0 10px #ff758c;
+}
+
+/* Bouton "Add Player" */
+.add-player-btn {
+  background-color: #ff758c; /* Rose vif */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.add-player-btn:hover {
+  background-color: #e84393; /* Rose légèrement plus foncé au survol */
+}
+/* Bouton Start the Game */
+/* Bouton Start the Game */
+.start-game-btn {
+  background-color: #ff758c; /* Rose vif */
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.5rem; /* Texte plus grand */
+  font-weight: bold;
+  border: none;
+  border-radius: 10px; /* Coins arrondis */
+  cursor: pointer;
+  margin-top: 20px; /* Espace au-dessus du bouton */
+  transition: background-color 0.3s ease;
+}
+
+.start-game-btn:hover {
+  background-color: #e84393; /* Rose légèrement plus foncé */
+}
+
+.start-game-btn.disabled {
+  background-color: #cccccc; /* Gris pour le bouton désactivé */
+  cursor: not-allowed;
+}
+
+
+/* Logo */
+.logo-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.logo-timer {
+  width: 150px; /* Ajuste la taille du logo */
+  margin-bottom: 20px;
+}
+
+/* Carte Timer */
+.timer-card {
+  background: #241663; /* Bleu foncé */
+  border-radius: 20px; /* Coins arrondis */
+  padding: 40px;
+  width: 100%; /* Largeur complète relative au conteneur */
+  max-width: 600px; /* Limite maximale */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Ombre élégante */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  color: #ffffff; /* Texte blanc */
+  text-align: center;
+}
+
+/* Titre de la Carte Timer */
+.timer-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff758c; /* Rose vif */
+}
+
+/* Timer */
+.timer {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f3f0ff; /* Violet clair */
+  margin-bottom: 20px;
+}
+
+/* Boutons Start et Pause */
+.timer-controls {
+  display: flex;
+  gap: 20px;
+}
+
+.timer-btn {
+  background-color: #ff758c; /* Rose vif */
   color: white;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.timer-btn:disabled {
+  background-color: #cccccc; /* Gris pour les boutons désactivés */
+  cursor: not-allowed;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.timer-btn:hover:not(:disabled) {
+  background-color: #e84393; /* Rose légèrement plus foncé */
+}
+/* Bouton Restart */
+.restart-btn {
+  background-color: #f39c12; /* Orange vif */
+}
+
+.restart-btn:hover:not(:disabled) {
+  background-color: #e67e22; /* Orange légèrement plus foncé */
+}
+/* Conteneur global pour le timer et les points */
+.timer-points-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Carte Points */
+.points-card {
+  background: #ADD8E6; /* Bleu clair */
+  border-radius: 20px;
+  padding: 30px 20px; /* Plus d'espace intérieur */
+  width: 40%; /* Largeur relative */
+  max-width: 300px; /* Limite maximale */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Ombre subtile */
+  color: #1B1B1B; /* Texte gris foncé pour un bon contraste */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centre verticalement */
+}
+
+/* Carte Points */
+.points-card {
+  background: #ADD8E6; /* Bleu clair */
+  border-radius: 20px;
+  padding: 30px 20px; /* Plus d'espace intérieur */
+  width: 40%; /* Largeur relative */
+  max-width: 300px; /* Limite maximale */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Ombre subtile */
+  color: #1B1B1B; /* Texte gris foncé pour un bon contraste */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centre verticalement */
+  margin-top: 120px; /* Espace supplémentaire pour descendre la carte */
+}
+
+/* Titre des Scores */
+.points-title {
+  font-size: 2rem; /* Augmentation de la taille */
+  margin-bottom: 20px;
+  color: #004080; /* Bleu foncé pour le titre */
+  font-weight: bold; /* Texte en gras */
+}
+
+/* Liste des Scores */
+.points-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.player-points {
+  font-size: 1.5rem; /* Augmente la taille des noms */
+  margin-bottom: 15px; /* Espacement entre les joueurs */
+  color: #003366; /* Texte légèrement plus foncé */
+  font-weight: bold; /* Texte en gras */
+}
+
+/* Nom du joueur actif */
+.current-player {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  color: #f3f0ff;
+}
+
+/* Boutons d'actions */
+.action-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.action-buttons button {
+  background-color: #8e44ad; /* Violet */
+  color: white;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-buttons button:hover {
+  background-color: #6c3483; /* Violet foncé */
+}
+/* Sélection du joueur */
+.player-select {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.player-select label {
+  font-size: 1rem;
+  color: #004080; /* Bleu foncé */
+}
+
+.player-select select {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #8e44ad; /* Violet */
+  border-radius: 5px;
+  width: 100%;
+  max-width: 200px;
+  background-color: #f3f0ff; /* Fond clair */
+  color: #500263;
+}
+/* Bouton Show Results dans la carte */
+.show-results-btn {
+  margin-top: 20px; /* Espace au-dessus du bouton */
+  background-color: #1E90FF; /* Bleu vif */
+  color: white; /* Texte blanc */
+  padding: 15px 30px; /* Taille plus grande */
+  font-size: 1.5rem; /* Texte plus grand */
+  font-weight: bold; /* Texte en gras */
+  border: none;
+  border-radius: 10px; /* Coins arrondis */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition pour le hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre élégante */
+  align-self: center; /* Centre le bouton dans la carte */
+}
+
+.show-results-btn:hover {
+  background-color: #4682B4; /* Bleu légèrement plus foncé */
+  transform: scale(1.05); /* Légère augmentation de taille au survol */
+}
+/* Bannière pour le gagnant */
+.winner-banner {
+  background-color: #FFD700; /* Or */
+  color: #1B1B1B; /* Texte foncé */
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Classement */
+.results-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.player-ranking {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.player-ranking.winner {
+  font-weight: bold;
+  color: #FFD700; /* Or pour le gagnant */
+}
+/* Boutons Add Player et Remove Player */
+.player-controls button {
+  background-color: #ff69b4; /* Rose bonbon */
+  color: white; /* Texte blanc */
+  padding: 15px 30px; /* Taille augmentée */
+  font-size: 1.3rem; /* Texte plus grand */
+  font-weight: bold; /* Texte en gras */
+  border: none;
+  border-radius: 10px; /* Coins arrondis */
+  cursor: pointer;
+  margin: 10px; /* Espacement entre les boutons */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition pour le hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre élégante */
+}
+
+.player-controls button:hover {
+  background-color: #ff1493; /* Rose vif au survol */
+  transform: scale(1.1); /* Légère augmentation de taille au survol */
+}
+
+.player-controls button:disabled {
+  background-color: #ffd1e3; /* Rose clair pour état désactivé */
+  cursor: not-allowed; /* Curseur interdit */
+  transform: none; /* Pas d'effet au survol pour bouton désactivé */
+}
+.replay-btn {
+  margin-top: 20px;
+  background-color: #32CD32; /* Vert vif */
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.replay-btn:hover {
+  background-color: #228B22; /* Vert légèrement plus foncé */
+  transform: scale(1.1); /* Zoom léger */
 }
